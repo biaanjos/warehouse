@@ -18,11 +18,13 @@ public class WarehouseApplication {
 	@Bean
 	public CommandLineRunner dataLoader(WarehouseRepository repository) {
 		return args -> {
-			repository.save(new Item("Black bag",2022, 2680, Brand.STONE_ISLAND));
+			repository.save(new Item("Black bag",2022, 2680, Brand.CHANEL));
 			repository.save(new Item("Red Dress",2023, 2580, Brand.GUCCI));
 			repository.save(new Item("Black Skirt",2022, 3500, Brand.DIOR));
 			repository.save(new Item("White Shoes",2022, 2800, Brand.DIOR));
 			repository.save(new Item("Blue T-shirt",2023, 2000, Brand.BALENCIAGA));
+			repository.save(new Item("Yellow Jacket",2022, 3580, Brand.DIOR));
+			repository.save(new Item("Blue Shoes",2022, 2887, Brand.PRADA));
 
 		};
 	}

@@ -34,9 +34,23 @@
 <div class="container my-3">
     <div class="col-md-12 text-center">
     <button class="btn btn-outline-info btn-lg" type="button" th:onclick="|window.location.href='/allSorted'|">Order by brand</button></br></br>
+        <form class="mt-3" method="post" th:object="${itemByBrand}">
+            <div class="mb-3">
+                <p for="brand" class="text-secondary">Brand: </p>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="brand"
+                        th:field="*{brandName}"
+                />
+            </div>
+            <button class="btn btn-outline-info mt-5">
+                Search By Brand and Year 2022
+            </button>
+        </form>
+        </br>
         <a href="/" class="link-info">Submit another one</a>
     </div>
 </div>
-
 </body>
 </html>

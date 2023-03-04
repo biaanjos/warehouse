@@ -17,7 +17,7 @@ public class Item {
 
     public enum Brand {
 
-        BALENCIAGA("Balenciaga"), DIOR("Dior"), GUCCI("Gucci"), STONE_ISLAND("Stone Island");
+        BALENCIAGA("Balenciaga"), CHANEL("Chanel"), DIOR("Dior"), GUCCI("Gucci"), PRADA("Prada");
 
         private  String name;
         private Brand(String name) {
