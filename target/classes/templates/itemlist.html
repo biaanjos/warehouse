@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>List of items</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+</head>
+<body class="bg-dark">
+<h2 class="text-info text-center">Clothes Warehouse - Stock</h2>
+<div class="d-flex flex-row mb-3">
+    <div
+            class="card ms-3 me-3 text-secondary"
+            th:each="item: ${items}"
+            style="width: 18rem"
+    >
+        <div class="card-body">
+            <h5 class="card-title text-secondary" th:text="${item.name}" />
+            <h6
+                    class="card-subtitle mb-2 text-secondary"
+                    th:text="|Year: ${item.yearItem}|"
+            />
+            <h6
+                    class="card-subtitle mb-2 text-secondary"
+                    th:text="|Price: ${item.price}|"
+            />
+            <p class="card-text text-secondary" th:text="${item.brandName}"></p>
+        </div>
+    </div>
+</div>
+<div class="container my-3">
+    <div class="col-md-12 text-center">
+    <button class="btn btn-outline-info btn-lg" type="button" th:onclick="|window.location.href='/allSorted'|">Order by brand</button></br></br>
+        <a href="/" class="link-info">Submit another one</a>
+    </div>
+</div>
+
+</body>
+</html>

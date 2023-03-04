@@ -1,0 +1,15 @@
+.clothes-group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 1em;
+}
+
+.submit-btn {
+    margin-top: 1em;
+}
+
+.validationError{
+    color: red;
+    font-style: italic;
+}

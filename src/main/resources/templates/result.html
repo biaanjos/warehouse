@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>Result Submission</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+</head>
+<body class="bg-dark">
+<div class="d-flex flex-column bd-highlight justify-content-center align-items-center">
+<h2 class="text-info">Result - Item Added to the stock</h2>
+<p th:text="'name: ' + ${item.name}"  class="text-secondary"/>
+<p th:text="'id: ' + ${item.id}"  class="text-secondary"/>
+<p th:text="'year: ' + ${item.yearItem}"  class="text-secondary"/>
+<p th:text="'price: $' + ${item.price}"  class="text-secondary"/>
+<p th:text="'brand: ' + ${item.brandName}" class="text-secondary" />
+    <div class="container my-3">
+        <div class="col-md-12 text-center">
+    <a href="/" class="link-info">Submit another one</a></br>
+    <a href="/all" class="link-info">Get all items</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
