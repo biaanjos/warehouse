@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>Clothes Warehouse</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
+</head>
+<body class="bg-dark">
+<div th:replace="menu-bar.html"></div>
+<h2 class="text-info text-center">Inventory Control</h2>
+<!--<div class="d-flex flex-row mb-3">
+    <div
+            class="card ms-3 me-3 text-secondary"
+            th:each="item: ${items}"
+            style="width: 18rem"
+    >
+        <div class="card-body">
+            <h5 class="card-title text-secondary" th:text="${item.name}" />
+            <h6
+                    class="card-subtitle mb-2 text-secondary"
+                    th:text="|Year: ${item.yearItem}|"
+            />
+            <h6
+                    class="card-subtitle mb-2 text-secondary"
+                    th:text="|Price: ${item.price}|"
+            />
+            <p class="card-text text-secondary" th:text="${item.brandName}"></p>
+        </div>
+    </div>
+</div>-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="text-white">Name</th>
+                    <th class="text-white">Year</th>
+                    <th class="text-white">Price</th>
+                    <th class="text-white">Brand</th>
+                    <th class="text-white"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${items}">
+                    <td th:text="${item.name}" class="text-secondary"></td>
+                    <td th:text="${item.yearItem}" class="text-secondary"></td>
+                    <td th:text="|$ ${item.price}|" class="text-secondary"></td>
+                    <td th:text="${item.brandName}" class="text-secondary"></td>
+                    <td>
+                        <form th:action="@{/management/delete/(id=${item.id})}" th:object="${item}" method="post">
+                            <button type="submit" class="btn btn-secondary">Delete item</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container my-3">
+    <div class="col-md-12 text-center">
+        <!--<form class="mt-3" method="post" th:object="${itemByBrand}">
+            <div class="mb-3">
+                <p for="brand" class="text-secondary">Brand: </p>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="brand"
+                        th:field="*{brandName}"
+                />
+            </div>
+            <button class="btn btn-outline-info mt-5">
+                Search By Brand and Year 2022
+            </button>
+        </form>-->
+        </br></br>
+        <form method="post" th:action="@{/management/allSorted}">
+            <button class="btn btn-outline-info btn-lg">
+                Order By brand
+            </button>
+        </form>
+        </br></br>
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <form method="post" th:action="@{/management/deleteAll}">
+            <button class="btn btn-outline-info btn-lg">
+                Delete All
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

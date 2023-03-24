@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface WarehouseRepository extends JpaRepository<Item, Long> {
-    List<Item> findAllByBrandNameAndYearItem(Item.Brand brandName, int yearItem);
+    List<Item> findAllByBrandName(Item.Brand brandName);
     List<Item> findByOrderByBrandNameAsc ();
 
 
